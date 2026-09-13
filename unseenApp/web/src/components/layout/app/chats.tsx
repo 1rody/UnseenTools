@@ -5,14 +5,13 @@ import Link from "next/link";
 import { useState } from "react";
 
 import { ASIDE, BRAND, FIELD, GHOST, LABEL, PRIMARY, SELECT, row } from "@/src/components/layout/app/shared";
+import MODELS from "@/src/data/models.json";
 
 type ChatCategory = "code" | "cowork";
 
 type ChatBarProps = {
     category: ChatCategory;
 };
-
-const MODELS = ["GPT-4", "GPT-4 Turbo", "Claude 3.5 Sonnet", "Gemini Pro"];
 
 const CATEGORIES: Record<ChatCategory, { label: string; folders: string[]; recent: string[] }> = {
     code: {
@@ -30,7 +29,7 @@ const CATEGORIES: Record<ChatCategory, { label: string; folders: string[]; recen
 export default function ChatBar({ category }: ChatBarProps) {
     const data = CATEGORIES[category];
 
-    const [model, setModel] = useState(MODELS[0]);
+    const [model, setModel] = useState(MODELS[0].id);
     const [activeFolder, setActiveFolder] = useState(data.folders[0]);
     const [settings, setSettings] = useState(false);
 
@@ -54,7 +53,7 @@ export default function ChatBar({ category }: ChatBarProps) {
                     <div className="px-2">
                         <select value={model} onChange={(e) => setModel(e.target.value)} className={SELECT}>
                             {MODELS.map((item) => (
-                                <option key={item} value={item}>{item}</option>
+                                <option key={item.id} value={item.id}>{item.label}</option>
                             ))}
                         </select>
                     </div>

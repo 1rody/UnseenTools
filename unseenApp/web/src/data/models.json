@@ -1,0 +1,6 @@
+[
+  { "id": "gpt-4", "label": "GPT-4", "provider": "OpenAI" },
+  { "id": "gpt-4-turbo", "label": "GPT-4 Turbo", "provider": "OpenAI" },
+  { "id": "claude-3-5-sonnet", "label": "Claude 3.5 Sonnet", "provider": "Anthropic" },
+  { "id": "gemini-pro", "label": "Gemini Pro", "provider": "Google" }
+]
